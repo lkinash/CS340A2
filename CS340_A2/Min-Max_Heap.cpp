@@ -15,7 +15,7 @@ Heap::Heap(){
     end = 0;
 }
 
-void Heap::buildHeap(){        //Builds a min-max heap from a list of naturals read from standard input.
+void Heap::buildTestHeap(){        //Builds a min-max heap from a list of naturals read from standard input.
 
     int temp[] = {0, 6, 81, 87, 14, 17, 12, 28, 71, 25, 80, 20, 52, 78, 31, 42, 31, 59, 16, 24, 79, 63, 18, 19, 32, 13, 15, 48};
     
@@ -25,7 +25,52 @@ void Heap::buildHeap(){        //Builds a min-max heap from a list of naturals r
     end = 27;
     
 }
+
+void Heap::runTests(){
+ 
+    buildTestHeap();
+    printHeap();
+    //heap.printEachLevel();
     
+    cout << "Max: " << findMax() << endl;
+    cout << "Min: " << findMin() << endl;
+    
+    insertHeap(1);
+    printHeap();
+    
+    cout << "Min: " << findMin() << endl;
+    
+    insertHeap(90);
+    printHeap();
+    
+    cout << "Max: " << findMax() << endl;
+    
+    return;
+    
+}
+
+void Heap::buildUserHeap(){
+    
+    
+    
+}
+
+void Heap::takeInput(){
+ 
+    int input;
+    
+    cout << "For a user entered heap of numbers enter 1, to run default system tests enter any other number: ";
+    cin >> input;
+    
+    if(input == 1){
+        buildUserHeap();
+    }
+    else{
+        cout << "Running Tests" << endl;
+        runTests();
+    }
+}
+
 int Heap::findMin(){
 
     return heap[1];

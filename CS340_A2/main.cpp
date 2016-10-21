@@ -15,22 +15,7 @@ int main() {
 
     Heap heap = *new Heap();
 
-    heap.buildHeap();
-    heap.printHeap();
-    //heap.printEachLevel();
-    
-    cout << "Max: " << heap.findMax() << endl;
-    cout << "Min: " << heap.findMin() << endl;
-    
-    heap.insertHeap(1);
-    heap.printHeap();
-    
-    cout << "Min: " << heap.findMin() << endl;
-    
-    heap.insertHeap(90);
-    heap.printHeap();
-    
-    cout << "Max: " << heap.findMax() << endl;
+    heap.takeInput();
     
     return 0;
 }

@@ -21,7 +21,10 @@ class Heap{
 public:
     Heap();
     
-    void buildHeap();        //Builds a min-max heap from a list of naturals read from standard input.
+    void buildTestHeap();        //Builds a min-max heap from a list of naturals read from standard input.
+    void buildUserHeap();
+    void takeInput();
+    void runTests();
     
     int findMin();
     int findMax();          //Returns the minimum (resp the maximum) element.
