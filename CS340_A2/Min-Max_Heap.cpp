@@ -18,11 +18,14 @@ Heap::Heap(){
 void Heap::buildTestHeap(){        //Builds a min-max heap from a list of naturals read from standard input.
 
     int temp[] = {0, 6, 81, 87, 14, 17, 12, 28, 71, 25, 80, 20, 52, 78, 31, 42, 31, 59, 16, 24, 79, 63, 18, 19, 32, 13, 15, 48};
-    
-    for(int i = 1; i <= 27; i++)
-        heap[i] = temp[i];
+
+    //int temp[] = {0, 6, 81, 87, 14, 17, 12, 28, 71, 25, 80, 20, 52, 78};
     
     end = 27;
+    //end = 13;
+    
+    for(int i = 1; i <= end; i++)
+        heap[i] = temp[i];
     
 }
 
@@ -30,11 +33,10 @@ void Heap::runTests(){
  
     buildTestHeap();
     printHeap();
-    //heap.printEachLevel();
     
     cout << "Max: " << findMax() << endl;
     cout << "Min: " << findMin() << endl;
-    
+   /*
     insertHeap(1);
     printHeap();
     
@@ -45,22 +47,63 @@ void Heap::runTests(){
     
     cout << "Max: " << findMax() << endl;
     
+    deleteMax();
+    printHeap();
+    
+    deleteMin();
+    printHeap();
+   */
+    deleteAllMinTest();
+    
+    buildTestHeap();
+    printHeap();
+    deleteAllMaxTest();
+    
+    
     return;
     
 }
 
+void Heap::deleteAllMinTest(){
+    
+    for(int i = end; i > 0; i--){
+        cout << "Min to Delete: " << findMin() << endl;
+        deleteMin();
+        //printHeap();
+    }
+    return;
+}
+
+void Heap::deleteAllMaxTest(){
+    
+    for(int i = end; i > 0; i--){
+        cout << "Max to Delete: " << findMax() << endl;
+        deleteMax();
+        //printHeap();
+    }
+    return;
+}
+
 void Heap::buildUserHeap(){
     
-    
+    int value, index = 1;
+
+    while(1){
+        
+        cin >> value;
+        heap[index] = value;
+    }
+        
     
 }
 
 void Heap::takeInput(){
  
-    int input;
+    int input = 2;
     
-    cout << "For a user entered heap of numbers enter 1, to run default system tests enter any other number: ";
-    cin >> input;
+    //cout << "For a user entered heap of numbers enter 1, to run default system tests enter any other number: ";
+    //cin >> input;
+    
     
     if(input == 1){
         buildUserHeap();
@@ -95,14 +138,48 @@ void Heap::insertHeap(int newElement){         //Inserts a new element into the 
     heap[end] = newElement;
     bubbleUp(end);
     
+    return;
+    
 }
 
 void Heap::deleteMin(){
-    
+
+    if (end == 0)
+        throw Empty();
+    else {
+        heap[1] = heap[end];
+        end--;
+        if(end > 0)
+            trickleDown(1);
+    }
+
+    return;
 }
 
 void Heap::deleteMax(){            //Deletes the minimum (resp the maximum) element.
 
+    if (end == 0)
+        throw Empty();
+    
+    if(end < 2){
+        heap[1] = heap[end];
+        end--;
+        if(end > 0)
+            trickleDown(1);
+    }
+    else if((end > 2) && (heap[2] < heap[3])){
+        heap[3] = heap[end];
+        end--;
+        if(end > 2)
+            trickleDown(3);
+    }
+    else{
+        heap[2] = heap[end];
+        end--;
+        if(end > 1)
+            trickleDown(2);
+    }
+    return;
 }
 
 
@@ -126,7 +203,7 @@ void Heap::bubbleUp(int i){
             bubbleUpMax(i);
         }
     }
-    
+    return;
 }
 
 void Heap::bubbleUpMin(int i){
@@ -137,7 +214,6 @@ void Heap::bubbleUpMin(int i){
             bubbleUpMin((getGrandparentIndex(i)));
         }
     }
-    
     return;
      
 }
@@ -150,7 +226,6 @@ void Heap::bubbleUpMax(int i){
             bubbleUpMin((getGrandparentIndex(i)));
         }
     }
-    
     return;
     
 }
@@ -170,7 +245,7 @@ void Heap::trickleDown(int i){
 void Heap::trickleDownMin(int i){
 
     if ((hasLeftChild(i)) || (hasRightChild(i))){
-        int m = getSmallestChildIndex(i);               //index of smallest of the children and grandchildren (if any) of A[i]
+        int m = getSmallestGrandChildIndex(i);               //index of smallest of the children and grandchildren (if any) of A[i]
         if ((getGrandparentIndex(m)) == i){
             if(heap[m] < heap[i]){
                 swap(i, m);
@@ -186,19 +261,20 @@ void Heap::trickleDownMin(int i){
             }
         }
     }
+    return;
 }
 
 void Heap::trickleDownMax(int i){
    
     if ((hasLeftChild(i)) || (hasRightChild(i))){
-        int m = getSmallestChildIndex(i);               //index of smallest of the children and grandchildren (if any) of A[i]
+        int m = getLargestGrandChildIndex(i);               //index of smallest of the children and grandchildren (if any) of A[i]
         if ((getGrandparentIndex(m)) == i){
             if(heap[m] > heap[i]){
                 swap(i, m);
                 if (heap[m] < heap[(getParentIndex(m))]){
                     swap(m, (getParentIndex(m)));
                 }
-                trickleDownMin(m);
+                trickleDownMax(m);
             }
         }
         else{
@@ -207,6 +283,7 @@ void Heap::trickleDownMax(int i){
             }
         }
     }
+    return;
 }
 
 int Heap::getLeftChildIndex(int i){
@@ -231,11 +308,81 @@ int Heap::getGrandparentIndex(int i){
 
 int Heap::getSmallestChildIndex(int i){
 
-    if(heap[(getLeftChildIndex(i))] < heap[(getRightChildIndex(i))])
-        return (getLeftChildIndex(i));
-    else
-        return (getRightChildIndex(i));
+    if(hasLeftChild(i)){
+        if((((heap[(getLeftChildIndex(i))] > heap[(getRightChildIndex(i))])) && (hasRightChild(i))))
+            return (getRightChildIndex(i));
+        else
+            return (getLeftChildIndex(i));
+    }
     
+    else
+        return i;
+    
+}
+
+int Heap::getSmallestGrandChildIndex(int i){
+    
+    int i1 = getSmallestChildIndex((getLeftChildIndex(i)));
+    int i2 = getSmallestChildIndex((getRightChildIndex(i)));
+    int i3 = getSmallestChildIndex(i);
+    
+    int a1  = INT_MAX, a2  = INT_MAX, a3 = INT_MAX;
+    
+    if(i1 <= end)
+        a1 = heap[(getSmallestChildIndex((getLeftChildIndex(i))))];
+    if(i2 <= end)
+        a2 = heap[(getSmallestChildIndex((getRightChildIndex(i))))];
+    if(i3 <= end)
+        a3 = heap[(getSmallestChildIndex(i))];
+    
+    if( a1 == (min(a1, (min(a2, a3)))))
+        return i1;
+    if( a2 == (min(a1, (min(a2, a3)))))
+        return i2;
+    if( a3 == (min(a1, (min(a2, a3)))))
+        return i3;
+    else
+        return i;
+
+}
+
+int Heap::getLargestChildIndex(int i){
+    
+    if(hasLeftChild(i)){
+       if((((heap[(getLeftChildIndex(i))] < heap[(getRightChildIndex(i))])) && (hasRightChild(i))))
+            return (getRightChildIndex(i));
+       else
+            return (getLeftChildIndex(i));
+    }
+    
+    else
+        return i;
+    
+}
+
+int Heap::getLargestGrandChildIndex(int i){
+    
+    int i1 = getLargestChildIndex((getLeftChildIndex(i)));
+    int i2 = getLargestChildIndex((getRightChildIndex(i)));
+    int i3 = getLargestChildIndex(i);
+    
+    int a1 = INT_MIN, a2 = INT_MIN, a3 = INT_MIN;
+    
+    if(i1 <= end)
+        a1 = heap[(getLargestChildIndex((getLeftChildIndex(i))))];
+    if(i2 <= end)
+        a2 = heap[(getLargestChildIndex((getRightChildIndex(i))))];
+    if(i3 <= end)
+        a3 = heap[(getLargestChildIndex(i))];
+    
+    if( a1 == (max(a1, (max(a2, a3)))))
+        return i1;
+    if( a2 == (max(a1, (max(a2, a3)))))
+        return i2;
+    if( a3 == (max(a1, (max(a2, a3)))))
+        return i3;
+    else
+        return i;
 }
 
 bool Heap::hasLeftChild(int i){
@@ -260,12 +407,15 @@ bool Heap::hasGrandparent(int i){
 
 void Heap::swap(int index1, int index2){
 
+    if(index1 > end || index2 > end)
+        throw OutOfBounds();
+    
     int temp = heap[index1];
     heap[index1] = heap[index2];
     heap[index2] = temp;
     
-    cout << "Swap: " << heap[index1] << ", " <<  heap[index2] << endl;
-    //cout << "Swap Index: " << index1 << ", " <<  index2 << endl;
+    //cout << "Swap: " << heap[index1] << ", " << heap[index2] << endl;
+    //cout << "Swap Index: " << index1 << ", " << index2 << endl;
     
     return;
     

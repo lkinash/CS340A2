@@ -16,6 +16,12 @@ const int HEAP_SIZE = 1000;
 class Overflow
 {};
 
+class Empty
+{};
+
+class OutOfBounds
+{};
+
 class Heap{
     
 public:
@@ -25,6 +31,9 @@ public:
     void buildUserHeap();
     void takeInput();
     void runTests();
+    
+    void deleteAllMinTest();
+    void deleteAllMaxTest();
     
     int findMin();
     int findMax();          //Returns the minimum (resp the maximum) element.
@@ -40,7 +49,11 @@ public:
     int getGrandparentIndex(int i);
 
     int getSmallestChildIndex(int i);
+    int getSmallestGrandChildIndex(int i);
     
+    int getLargestChildIndex(int i);
+    int getLargestGrandChildIndex(int i);
+
     bool hasLeftChild(int i);
     bool hasRightChild(int i);
     bool hasParent(int i);
