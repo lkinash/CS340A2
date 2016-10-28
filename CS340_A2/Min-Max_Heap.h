@@ -34,10 +34,10 @@ public:
     void buildTestHeap();       //Builds a min-max heap from a list of naturals preset as the test heap for the program
     void buildUserHeap();       //Builds a min-max heap from a list of naturals read from standard input.
 
-    void takeInput();
-    void runTests();
-    void promptCommands();
-    void callPromptedFunction(int i);
+    void takeInput();                    //the initial take input from the user determines if the system will take the user input or build a test heap
+    void runTests();                    //the run tests function runs a number of test functions on the test heap that is creaeted
+    void promptCommands();              //the prompt user commands function asks the user what they would like to do with their heap after they create it
+    void callPromptedFunction(int i);  //this function is passed the user input for a function they would like to be executed on the heap and calls the function
     
     void deleteAllMinTest();                //test the delete min function by deleting min over and over until the heap is empty
     void deleteAllMaxTest();                   //test the delete max function by deleting min over and over until the heap is empty
