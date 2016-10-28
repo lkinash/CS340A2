@@ -287,6 +287,7 @@ void Heap::bubbleUp(int i){                     //bubble ensures that when a nod
     else{                                             //otherwise if the node passed in is not on a min level
         if((hasParent(i)) && ((heap[i]) < (heap[(getParentIndex(i))]))){         //if it has a parent and is smaller than the parent value
             swap(i, (getParentIndex(i)));                                //then swap the two nodes values
+            
             bubbleUpMin((getParentIndex((i))));                       //and call the bubble up min function for the parent node
         }
         else{

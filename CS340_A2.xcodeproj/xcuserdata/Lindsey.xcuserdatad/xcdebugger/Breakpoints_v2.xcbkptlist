@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS340_A2/Min-Max_Heap.cpp"
-            timestampString = "499227600.193583"
+            timestampString = "499324724.277615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "Heap::bubbleUp(int i)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS340_A2/Min-Max_Heap.cpp"
-            timestampString = "499227600.193583"
+            timestampString = "499324724.277615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "Heap::bubbleUp(int i)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS340_A2/Min-Max_Heap.cpp"
-            timestampString = "499227600.193583"
+            timestampString = "499324724.277615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "Heap::insertHeap(int newElement)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS340_A2/Min-Max_Heap.cpp"
-            timestampString = "499227600.193583"
+            timestampString = "499324724.277615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "Heap::trickleDownMin(int i)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS340_A2/Min-Max_Heap.cpp"
-            timestampString = "499227600.193583"
+            timestampString = "499324724.277615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "486"
-            endingLineNumber = "486"
+            startingLineNumber = "473"
+            endingLineNumber = "473"
             landmarkName = "Heap::getLargestGrandChildIndex(int i)"
             landmarkType = "7">
          </BreakpointContent>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		909DC6A41DADC7B5005AAF20 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 909DC6A31DADC7B5005AAF20 /* main.cpp */; };
+		903CB1F81DC31726008BB7F2 /* assign2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 903CB1F71DC31726008BB7F2 /* assign2.cpp */; };
 		909DC6AC1DADC883005AAF20 /* Min-Max_Heap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 909DC6AB1DADC883005AAF20 /* Min-Max_Heap.cpp */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		903CB1F71DC31726008BB7F2 /* assign2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = assign2.cpp; sourceTree = "<group>"; };
 		909DC6A01DADC7B5005AAF20 /* CS340_A2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CS340_A2; sourceTree = BUILT_PRODUCTS_DIR; };
-		909DC6A31DADC7B5005AAF20 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		909DC6AA1DADC876005AAF20 /* Min-Max_Heap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Min-Max_Heap.h"; sourceTree = "<group>"; };
 		909DC6AB1DADC883005AAF20 /* Min-Max_Heap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Min-Max_Heap.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +60,7 @@
 		909DC6A21DADC7B5005AAF20 /* CS340_A2 */ = {
 			isa = PBXGroup;
 			children = (
-				909DC6A31DADC7B5005AAF20 /* main.cpp */,
+				903CB1F71DC31726008BB7F2 /* assign2.cpp */,
 				909DC6AA1DADC876005AAF20 /* Min-Max_Heap.h */,
 				909DC6AB1DADC883005AAF20 /* Min-Max_Heap.cpp */,
 			);
@@ -93,7 +93,7 @@
 		909DC6981DADC7B5005AAF20 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Lindsey;
 				TargetAttributes = {
 					909DC69F1DADC7B5005AAF20 = {
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				909DC6A41DADC7B5005AAF20 /* main.cpp in Sources */,
+				903CB1F81DC31726008BB7F2 /* assign2.cpp in Sources */,
 				909DC6AC1DADC883005AAF20 /* Min-Max_Heap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,8 +145,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -189,8 +191,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -245,6 +249,7 @@
 				909DC6A91DADC7B5005AAF20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
