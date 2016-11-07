@@ -412,7 +412,7 @@ int Heap::getSmallestGrandChildIndex(int i){               //this function deter
     int i2 = getSmallestChildIndex((getRightChildIndex(i)));  //then the get smallest child of the right child function is called, and the index variable is set
     int i3 = getSmallestChildIndex(i);                      //finally the get smallest of just the nodes children's index variable is set
     
-    int a1  = INT_MAX, a2  = INT_MAX, a3 = INT_MAX;              //the value variables are set to int max
+    int a1  = INT_max, a2  = INT_max, a3 = INT_max;              //the value variables are set to int max
     
     if(i1 <= end)                         //if the index of the left childs smallest child is in bounds, a variable is set for the heap value at that index
         a1 = heap[(getSmallestChildIndex((getLeftChildIndex(i))))];
@@ -452,7 +452,7 @@ int Heap::getLargestGrandChildIndex(int i){                   //this function de
     int i2 = getLargestChildIndex((getRightChildIndex(i)));  //then the get largest child of the right child function is called, and the index variable is set
     int i3 = getLargestChildIndex(i);                      //finally the get largest of just the nodes children's index variable is set
     
-    int a1 = INT_MIN, a2 = INT_MIN, a3 = INT_MIN;           //the value variables are set to int min
+    int a1 = INT_min, a2 = INT_min, a3 = INT_min;           //the value variables are set to int min
     
     if(i1 <= end)                              //if the index of the left childs largest child is in bounds, a variable is set for the heap value at that index
         a1 = heap[(getLargestChildIndex((getLeftChildIndex(i))))];

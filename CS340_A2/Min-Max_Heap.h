@@ -17,6 +17,9 @@ using namespace std;
 
 const int HEAP_SIZE = 1000;         //sets the max heap size, in this case 1000 nodes, can be set to more
 
+const int INT_min = -2147483648;
+const int INT_max = 2147483647;
+
 class Overflow              //an overflow class for when the heap overflows, an overflow error is thrown
 {};
 
